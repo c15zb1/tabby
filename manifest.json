@@ -4,11 +4,15 @@
 	"name": "tabby",
 	"description": "This extension makes it easy to send chrome sessions to other users.",
 	"version": "1.0",
-	"browser_action": {
-		"default_icon": "icon.png",
-		"default_popup": "popup.html"
-	},
-	"permissions": [
-	"tabs"
-	]
+	"icons": { 
+		"16": "icon16.png",
+		"48": "icon48.png"
+		},
+		"browser_action": {
+			"default_icon": "icon48.png",
+			"default_popup": "popup.html"
+			},
+			"permissions": [
+			"tabs"
+			]
 }
