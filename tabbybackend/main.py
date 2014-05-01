@@ -20,7 +20,7 @@ from google.appengine.ext import db
 from google.appengine.api import mail
 
 class MainHandler(webapp2.RequestHandler):
-	def get(self):
+	def post(self):
 		url = self.request.get("urls")
 		urls = url.split(",")
 		URLs = models.Links(URLs=urls)
