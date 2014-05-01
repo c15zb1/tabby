@@ -1,31 +1,49 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Getting Started Extension's Popup</title>
-    <style>
-      body {
-        min-width: 357px;
-        overflow-x: hidden;
-      }
+<head>
+	<title>tabby</title>
+	<style>
+	body {
+		min-width: 357px;
+		overflow-x: hidden;
+	}
 
-      img {
-        margin: 5px;
-        border: 2px solid black;
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-      }
-    </style>
+	img {
+		margin: 5px;
+		border: 2px solid black;
+		vertical-align: middle;
+		width: 75px;
+		height: 75px;
+	}
+	</style>
+</head>
 
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
-     -->
-    <script src="popup.js"></script>
-  </head>
-  <body>
-  </body>
+<body>
+			<!--
+		<script type="text/javascript">
+		function formVal (form) {
+			alert("30");
+			var win = chrome.windows.WINDOW_ID_CURRENT;
+			var tabby;
+			var urlString;
+			alert("hi");
+			chrome.tabs.query( {active: true, windowID:}, function callback (array_of_tabs) {
+				for (tab in array_of_tabs){
+					tabby[tab.index] = tab.url;
+					urlString +=","+tab.url;
+				}
+				alert(urlString);
+				window.location = "http://tabbybackend.appspot.com/?urls="+urlString+"&"+form.inputbox.value;
+				alert("done");
+				return;
+			});
+		}
+		</script>
+	-->
+	<script src="popup.js"></script>
+	Email:
+	<input id="someInput" type="text">
+  <input type="button" value="Send Tabs!" onClick="doStuff()">
+</body>
 </html>
 
