@@ -1,36 +1,23 @@
-// function validateForm()
-// {
-//   alert("hello");
-//   var x=document.forms["myForm"]["email"].value;
-//   alert(x);
-//   return false;
-//   var win = chrome.windows.WINDOW_ID_CURRENT;
-//   var tabby;
-//   var urlString
-//   var QUERY = chrome.tabs.query( {active: true, windowID:}, function callback (array_of_tabs) {
-//     for (tab in array_of_tabs){
-//       tabby[tab.index] = tab.url;
-//       urlString +=","+tab.url;
-//     }
-//     window.location.href  ="http://tabbybackend.appspot.com/?urls="+urlString+"&email=c15zb1@gmail.com";
-//     alert("done");
-//   });
-// }
-// Copyright (c) 2012 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 var BASE = 'http://tabbybackend.appspot.com/?urls=';
-var WIN;
+document.getElementById('myBtn').addEventListener('click', doStuff);
 function doStuff () {
+//  window.alert('loaded');
+	//window.alert("hi");
 	em = document.getElementById('someInput').value;
-	alert("27, email: " + em);
-	//document.write(BASE);
-
-	chrome.tabs.query({'active': true, 'windowId': chrome.windows.WINDOW_ID_CURRENT},
-   function(tabs){
-      alert(tabs[0].url);
-   }
-);
+	//document.write(BASE);	
+	chrome.tabs.query({
+		lastFocusedWindow: true     // In the current window
+	}, function(array_of_Tabs) {
+		// Since there can only be one active tab in one active window, 
+		//  the array has only one element
+		for (var index = 0; index < array_of_Tabs.length; ++index) {
+			BASE+=array_of_Tabs[index].url;
+			if(index!=array_of_Tabs.length-1)
+				BASE+=',';
+			console.log(array_of_Tabs[index].url);
+		}
+		// Example:
+		// ... do something with url variable
+		window.open(BASE+"&email="+em);
+	});
 }
- // alert(urlString);
