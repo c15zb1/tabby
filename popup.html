@@ -4,46 +4,49 @@
 	<title>tabby</title>
 	<style>
 	body {
-		min-width: 357px;
+		width:237px;
+		height:400px;
 		overflow-x: hidden;
-	}
-
-	img {
-		margin: 5px;
-		border: 2px solid black;
-		vertical-align: middle;
-		width: 75px;
-		height: 75px;
 	}
 	</style>
 </head>
 
 <body>
-			<!--
-		<script type="text/javascript">
-		function formVal (form) {
-			alert("30");
-			var win = chrome.windows.WINDOW_ID_CURRENT;
-			var tabby;
-			var urlString;
-			alert("hi");
-			chrome.tabs.query( {active: true, windowID:}, function callback (array_of_tabs) {
-				for (tab in array_of_tabs){
-					tabby[tab.index] = tab.url;
-					urlString +=","+tab.url;
-				}
-				alert(urlString);
-				window.location = "http://tabbybackend.appspot.com/?urls="+urlString+"&"+form.inputbox.value;
-				alert("done");
-				return;
-			});
-		}
-		</script>
-	-->
-	Email:
-	<input id="someInput" type="text">
-	<input type="button" value="Send Tabs!" id = "myBtn">
-	<script src="popup.js"></script>
-</body>
-</html>
+	<body background="images/exten.gif">
+
+		<br>
+		<br>
+		<br>
+		<br>
+		Email:
+		<br>
+		<input id="someInput" class="textbox"type="text">
+		<input type="button" value="Send Tabs!" id = "myBtn">
+		<script src="popup.js"></script>
+
+		<style> 
+		.textbox{ 
+			border: 0; 
+			height:25px; 
+			width: 237px; 
+			border-radius: 10px; 
+			-moz-border-radius: 10px; 
+			-webkit-border-radius: 10px; 
+			box-shadow: 1px 1px 0 0 #FFF, 5px 5px 40px 2px #BBB inset; 
+			-moz-box-shadow: 1px 1px 0 0 #FFF, 5px 5px 40px 2px #BBB inset; 
+			-webkit-box-shadow: 1px 1px 0 0 #FFF, 5px 5px 40px 2px #BBB inset; 
+			-webkit-background-clip: padding-box; 
+			outline:0; 
+			float left;
+			text-align: center;
+		} 
+		</style>
+
+
+
+
+
+	</body>
+	</html>
+
 

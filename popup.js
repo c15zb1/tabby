@@ -13,15 +13,13 @@ function doStuff () {
 	chrome.tabs.query({
 		lastFocusedWindow: true     // In the current window
 	}, function(array_of_Tabs) {
-		// Since there can only be one active tab in one active window, 
-		//  the array has only one element
 		for (var index = 0; index < array_of_Tabs.length; ++index) {
-			BASE+=array_of_Tabs[index].url;
+			BASE+=array_of_Tabs[index].url.replace("#", "((((()))))");
 			if(index!=array_of_Tabs.length-1)
 				BASE+=',';
 			console.log(array_of_Tabs[index].url);
 		}
-		// Example:
-		// ... do something with url variable
+		window.open(BASE+"&email="+em);
+
 	});
 }
