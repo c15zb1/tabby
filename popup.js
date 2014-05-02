@@ -4,6 +4,23 @@ script.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script);
 
 var BASE = 'http://tabbybackend.appspot.com/?urls=';
+
+document.getElementById('fb').addEventListener('click', fbClick);
+function fbClick () {
+	window.open("http://compsci.dalton.org/~zbuttenwieser")
+}
+
+document.getElementById('gp').addEventListener('click', gpClick);
+function gpClick () {
+	window.open("http://compsci.dalton.org/~zbuttenwieser")
+}
+
+document.getElementById('tw').addEventListener('click', twClick);
+function twClick () {
+	window.open("http://compsci.dalton.org/~zbuttenwieser")
+}
+
+
 document.getElementById('myBtn').addEventListener('click', doStuff);
 function doStuff () {
 //  window.alert('loaded');
