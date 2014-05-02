@@ -1,23 +1,28 @@
-var script = document.createElement('script');
-script.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
-script.type = 'text/javascript';
-document.getElementsByTagName('head')[0].appendChild(script);
-
 var BASE = 'http://tabbybackend.appspot.com/?urls=';
 
 document.getElementById('fb').addEventListener('click', fbClick);
 function fbClick () {
-	window.open("http://compsci.dalton.org/~zbuttenwieser")
+	window.open("http://compsci.dalton.org/~zbuttenwieser");
 }
 
 document.getElementById('gp').addEventListener('click', gpClick);
 function gpClick () {
-	window.open("http://compsci.dalton.org/~zbuttenwieser")
+	window.open("http://compsci.dalton.org/~zbuttenwieser");
 }
 
 document.getElementById('tw').addEventListener('click', twClick);
 function twClick () {
-	window.open("http://compsci.dalton.org/~zbuttenwieser")
+	window.open("http://compsci.dalton.org/~zbuttenwieser");
+}
+
+document.getElementById('c15zb').addEventListener('click', twClick);
+function twClick () {
+	window.open("http://github.com/c15zb");
+}
+
+document.getElementById('higgs').addEventListener('click', twClick);
+function twClick () {
+	window.open("http://github.com/higgs241");
 }
 
 
@@ -37,6 +42,19 @@ function doStuff () {
 			console.log(array_of_Tabs[index].url);
 		}
 		window.open(BASE+"&email="+em);
-
 	});
 }
+
+chrome.tabs.query({active: true, currentWindow: true}, function(arrayOfTabs) {
+	var activeTab = arrayOfTabs[0];
+	var activeTabId = arrayOfTabs[0].id;
+	var url = activeTab.url;
+	if (url.split("\?") == "http://tabbybackend.appspot.com/linkhandler?key=") {
+		
+	};
+
+});
+
+
+
+
