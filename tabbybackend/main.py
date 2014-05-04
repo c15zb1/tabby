@@ -18,11 +18,15 @@ import webapp2
 import models
 from google.appengine.ext import db
 from google.appengine.api import mail
+import json
 
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
 		url = self.request.get("urls")
+
+		url = url.replace("((((()))))", "#")
 		urls = url.split(",")
+	
 		URLs = models.Links(URLs=urls)
 		URLs.put()
 		self.response.write(str(URLs.key()))
@@ -40,6 +44,7 @@ Click here to see your special surprise:
 
 class LinkHandler(webapp2.RequestHandler):
 	def get(self):
+		self.response.write("""<html><body onload="window.open('', '_self', ''); window.close();"> </body> </html>""")
 		key = self.request.get("key")
 		urls = db.get(key)
 		for url in urls.URLs:
