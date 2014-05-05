@@ -45,14 +45,6 @@ class LinkHandler(webapp2.RequestHandler):
 	def get(self):
 		key = self.request.get("key")
 		urls = db.get(key)
-<<<<<<< HEAD
-		self.response.write("""<html><body onload="window.open('', '_self', '');""")
-		self.response.write("""<script type='text/javascript'>(function(){""")
-		for url in urls.URLs:
-			self.response.write("""window.open("%s",'');""" % str(url))
-		self.response.write(""")})()</script>""")
-		self.response.write("""</body> </html>""")
-=======
 		self.response.write('<html> <body onload="')
 		i = 0
 		for url in urls.URLs:
@@ -64,14 +56,6 @@ class LinkHandler(webapp2.RequestHandler):
 
 
 		self.response.write('"></body></html>')
-
-#		self.response.write("""<html><body onload="window.open('', '_self', '');"> \n""")
-#		self.response.write("""<script type="text/javascript">(function(){ \n""")
-#		for url in urls.URLs:
-#			self.response.write("""window.open("%s",''); \n""" % str(url))
-#		self.response.write(""")})()</script> \n""")
-#		self.response.write("""</body> </html> \n""")
->>>>>>> fc2fd7ab32003505076d21332f5228ac04b0732d
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler),
