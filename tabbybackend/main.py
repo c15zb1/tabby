@@ -39,16 +39,18 @@ Click here to see your special surprise:
 
 %s
 """ % urltosend
-
 		mail.send_mail(sender_address, user_address, subject, body)
 
 class LinkHandler(webapp2.RequestHandler):
 	def get(self):
-		self.response.write("""<html><body onload="window.open('', '_self', ''); window.close();"> </body> </html>""")
-		key = self.request.get("key")
-		urls = db.get(key)
+        key = self.request.get("key")
+        urls = db.get(key)
+		self.response.write("""<html><body onload="window.open('', '_self', '');""")
+        self.response.write("""<script type='text/javascript'>(function(){""")
 		for url in urls.URLs:
-			self.response.write(str(url) + "</br>")
+            self.response.write("""window.open("%s",'');""" % str(url))
+        self.response.write(""")})()</script>""")
+        self.response.write("""</body> </html>""")
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler),
