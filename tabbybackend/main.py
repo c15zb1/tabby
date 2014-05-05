@@ -32,7 +32,7 @@ class MainHandler(webapp2.RequestHandler):
 		self.response.write(str(URLs.key()))
 		user_address = self.request.get("email")
 		urltosend = "tabbybackend.appspot.com/linkhandler?key=" + str(URLs.key())
-		sender_address = "helpmetabbyyouremyonlyhope@gmail.com"
+		sender_address = "<Tabby> helpmetabbyyouremyonlyhope@gmail.com"
 		subject = "Someone special you some tabs"
 		body = """
 Click here to see your special surprise:
@@ -45,12 +45,33 @@ class LinkHandler(webapp2.RequestHandler):
 	def get(self):
 		key = self.request.get("key")
 		urls = db.get(key)
+<<<<<<< HEAD
 		self.response.write("""<html><body onload="window.open('', '_self', '');""")
 		self.response.write("""<script type='text/javascript'>(function(){""")
 		for url in urls.URLs:
 			self.response.write("""window.open("%s",'');""" % str(url))
 		self.response.write(""")})()</script>""")
 		self.response.write("""</body> </html>""")
+=======
+		self.response.write('<html> <body onload="')
+		i = 0
+		for url in urls.URLs:
+			if i == 0:
+				self.response.write("""var win = window.open('%s',''); win.focus(); \n""" % str(url))
+			else:
+				self.response.write("""window.open('%s','_blank'); \n""" % str(url))
+			i = i + 1
+
+
+		self.response.write('"></body></html>')
+
+#		self.response.write("""<html><body onload="window.open('', '_self', '');"> \n""")
+#		self.response.write("""<script type="text/javascript">(function(){ \n""")
+#		for url in urls.URLs:
+#			self.response.write("""window.open("%s",''); \n""" % str(url))
+#		self.response.write(""")})()</script> \n""")
+#		self.response.write("""</body> </html> \n""")
+>>>>>>> fc2fd7ab32003505076d21332f5228ac04b0732d
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler),
