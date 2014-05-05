@@ -43,14 +43,14 @@ Click here to see your special surprise:
 
 class LinkHandler(webapp2.RequestHandler):
 	def get(self):
-        key = self.request.get("key")
-        urls = db.get(key)
+		key = self.request.get("key")
+		urls = db.get(key)
 		self.response.write("""<html><body onload="window.open('', '_self', '');""")
-        self.response.write("""<script type='text/javascript'>(function(){""")
+		self.response.write("""<script type='text/javascript'>(function(){""")
 		for url in urls.URLs:
-            self.response.write("""window.open("%s",'');""" % str(url))
-        self.response.write(""")})()</script>""")
-        self.response.write("""</body> </html>""")
+			self.response.write("""window.open("%s",'');""" % str(url))
+		self.response.write(""")})()</script>""")
+		self.response.write("""</body> </html>""")
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler),
